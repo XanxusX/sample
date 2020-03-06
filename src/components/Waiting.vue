@@ -244,5 +244,12 @@ data: () => ({
 </script>
 
 <style>
+.v-data-table th {
+      font-size: 1rem !important;
 
+ }
+
+ .v-data-table td {
+    font-size: 1rem !important;
+}
 </style>

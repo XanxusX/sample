@@ -1,14 +1,15 @@
 <template>
   <v-container fluid>
     <v-card>
+              <v-container>
         <v-card-title>
-          <span class="headline" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">分案設定</span>
+          <span class="title" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">分案設定</span>
         </v-card-title>
         <v-card-text>
-          <v-container>
+  
             <v-row>
               <v-col cols="4">
-                <v-subheader class="mt-2 title font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">群組名稱</v-subheader>
+                <v-subheader class="mt-2 subtitle-1 font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">群組名稱</v-subheader>
               </v-col>
               <v-col cols="8">
                 <v-text-field
@@ -17,7 +18,7 @@
             </v-row>
                         <v-row>
               <v-col cols="4">
-                <v-subheader class="mt-2 title font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">公司統一編號</v-subheader>
+                <v-subheader class="mt-2 subtitle-1 font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">公司統一編號</v-subheader>
               </v-col>
               <v-col cols="8">
                 <v-text-field
@@ -26,7 +27,7 @@
             </v-row>
                         <v-row>
               <v-col cols="4">
-                <v-subheader class="mt-2 title font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">公司登記名稱</v-subheader>
+                <v-subheader class="mt-2 subtitle-1 font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">公司登記名稱</v-subheader>
               </v-col>
               <v-col cols="8">
                 <v-text-field
@@ -35,7 +36,7 @@
             </v-row>
             <v-row>
               <v-col cols="4">
-                <v-subheader class="mt-2 title font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">營業地址</v-subheader>
+                <v-subheader class="mt-2 subtitle-1 font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">營業地址</v-subheader>
               </v-col>
               <v-col cols="8">
 <v-select
@@ -46,7 +47,7 @@
             </v-row>
                                     <v-row>
               <v-col cols="4">
-                <v-subheader class="mt-2 title font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">可聯絡時間</v-subheader>
+                <v-subheader class="mt-2 subtitle-1 font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">可聯絡時間</v-subheader>
               </v-col>
               <v-col cols="8">
     <v-menu
@@ -78,7 +79,7 @@
             </v-row>
             <v-row>
               <v-col cols="4">
-                <v-subheader class="mt-2 title font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">經辦人員</v-subheader>
+                <v-subheader class="mt-2 subtitle-1 font-weight-regular" style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important">經辦人員</v-subheader>
               </v-col>
               <v-col cols="8">
 <v-select
@@ -88,13 +89,14 @@
                 ></v-select>
               </v-col>
             </v-row>
-          </v-container>
+
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
           <v-btn color="blue darken-1" text @click="dialog = false">Save</v-btn>
         </v-card-actions>
+                  </v-container>
       </v-card>
   </v-container>
 </template>
@@ -109,4 +111,7 @@ export default {
 </script>
 
 <style>
+.theme--light.v-subheader {
+    color: rgba(0, 0, 0, 1) !important;
+}
 </style>
