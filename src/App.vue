@@ -51,6 +51,14 @@
             <v-list-item-title>分案設定</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item link to="calendar">
+          <v-list-item-action>
+            <v-icon>mdi-calendar</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>日曆</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar

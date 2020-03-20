@@ -4,6 +4,7 @@ import Setting from '../components/Setting.vue'
 import Waiting from '../components/Waiting.vue'
 import Undispatched from '../components/Undispatched.vue'
 import List from '../components/List.vue'
+import Calendar from '../components/Calendar'
 
 Vue.use(VueRouter)
 
@@ -33,7 +34,11 @@ const routes = [
     name: 'Waiting',
     component: Waiting
   },
-  
+  {
+    path: '/calendar',
+    name: 'Calendar',
+    component: Calendar
+  },
 ]
 
 const router = new VueRouter({
