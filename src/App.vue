@@ -92,6 +92,33 @@ export default {
   name: 'App',
   data: () => ({
     drawer: false,
+    menu: [
+      {
+      icon: 'mdi-home',
+      name: '回到首頁',
+      linkto: '/',
+    },
+    {
+      icon: 'mdi-format-list-bulleted',
+      name: '待辦案件',
+      linkto: 'waiting',
+    },
+    {
+      icon: 'mdi-home',
+      name: '回到首頁',
+      linkto: '/',
+    },
+    {
+      icon: 'mdi-home',
+      name: '回到首頁',
+      linkto: '/',
+    },
+    {
+      icon: 'mdi-home',
+      name: '回到首頁',
+      linkto: '/',
+    },
+    ]
   }),
 };
 </script>
