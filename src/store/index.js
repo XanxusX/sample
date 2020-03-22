@@ -5,11 +5,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    showMenu: true
   },
   mutations: {
+    ChangeMenuState: function (state) {
+      state.showMenu = !state.showMenu
+    }
   },
-  actions: {
-  },
-  modules: {
-  }
+  actions: {},
+  modules: {}
 })

@@ -1,0 +1,37 @@
+[
+  {
+    "text": "群組名稱",
+    "align": "start",
+    "sortable": false,
+    "value": "gname"
+  },
+  {
+    "text": "公司統一編號",
+    "value": "id"
+  },
+  {
+    "text": "公司登記名稱",
+    "value": "cname"
+  },
+  {
+    "text": "營業地址",
+    "value": "address"
+  },
+  {
+    "text": "營業時間",
+    "value": "time"
+  },
+  {
+    "text": "案件數",
+    "value": "num"
+  },
+  {
+    "text": "經辦人員",
+    "value": "dealer"
+  },
+  {
+    "text": "Action",
+    "value": "action",
+    "sortable": false
+  }
+]

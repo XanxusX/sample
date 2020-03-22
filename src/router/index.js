@@ -1,23 +1,29 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Setting from '../components/Setting.vue'
+import Form from '../components/Form.vue'
 import Waiting from '../components/Waiting.vue'
 import Undispatched from '../components/Undispatched.vue'
-import List from '../components/List.vue'
+import Table from '../components/Table.vue'
 import Calendar from '../components/Calendar'
+import Dashboard from '../components/Dashboard'
+import Login from '../components/Login'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
+const routes = [{
     path: '/',
-    name: 'Home',
-    component: List
+    name: 'Login',
+    component: Login
   },
   {
-    path: '/setting',
-    name: 'Setting',
-    component: Setting
+    path: '/home',
+    name: 'Home',
+    component: Table
+  },
+  {
+    path: '/form',
+    name: 'Form',
+    component: Form
   },
   {
     path: '/undispatched',
@@ -25,9 +31,9 @@ const routes = [
     component: Undispatched
   },
   {
-    path: '/list',
-    name: 'List',
-    component: List
+    path: '/table',
+    name: 'Table',
+    component: Table
   },
   {
     path: '/waiting',
@@ -38,6 +44,11 @@ const routes = [
     path: '/calendar',
     name: 'Calendar',
     component: Calendar
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
   },
 ]
 
