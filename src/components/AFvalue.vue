@@ -6,11 +6,11 @@
           <p
             class="display-1"
             style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important"
-          >申請書</p>
+          >申請單</p>
         </v-row>
         <v-row class="row">
           <v-col lg="true" md="true" class="col-md-6 col-sm-12 col-12">
-            <v-text-field label="名稱"></v-text-field>
+            <v-text-field label="名稱" value="王大明"></v-text-field>
           </v-col>
           <v-col lg="true" md="true" class="col-md-6 col-sm-12 col-12">
             <v-menu
@@ -30,18 +30,18 @@
         </v-row>
         <v-row class="row">
           <v-col lg="true" md="true" class="col-md-6 col-sm-12 col-12">
-            <v-select label="資料來源" chips n :items="['登錄系統','電話','傳真']"></v-select>
+            <v-select label="資料來源" chips n :items="['登錄系統','電話','傳真']" value="電話"></v-select>
           </v-col>
           <v-col lg="true" me="true" class="col-md-6 col-sm-12 col-12">
-            <v-select label="可聯絡時間" chips n :items="['上午','下午','晚上']" multiple></v-select>
+            <v-select label="可聯絡時間" chips n :items="['上午','下午','晚上']" multiple value="上午"></v-select>
           </v-col>
         </v-row>
         <v-row class="row">
           <v-col lg="true" md="true" class="col-md-3 col-sm-6 col-12">
-            <v-select label="縣市" :items="['台北市','新北市']"></v-select>
+            <v-select label="縣市" :items="['台北市','新北市']" value="台北市"></v-select>
           </v-col>
           <v-col lg="true" md="true" class="col-md-3 col-sm-6 col-12">
-            <v-select label="區域" :items="['大安區','文山區']"></v-select>
+            <v-select label="區域" :items="['大安區','文山區']" value="大安區"></v-select>
           </v-col>
           <v-col lg="true" md="true" class="col-md-6 col-sm-12 col-12">
             <v-text-field label="地址"></v-text-field>
@@ -49,7 +49,7 @@
         </v-row>
         <v-row class="row">
           <v-col lg="true" md="true" class="col-md-6 col-sm-12 col-12">
-            <v-text-field label="行動電話"></v-text-field>
+            <v-text-field label="行動電話" value="09123456789"></v-text-field>
           </v-col>
           <v-col lg="true" me="true" class="col-md-6 col-sm-12 col-12">
             <v-text-field label="其他電話"></v-text-field>
@@ -94,7 +94,8 @@
 export default {
   data: () => ({
     time: null,
-    menu2: false
+    menu2: false,
+    date: '2020-3-20'
   })
 }
 </script>
