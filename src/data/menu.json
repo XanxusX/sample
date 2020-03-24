@@ -2,7 +2,7 @@
   {
     "icon": "mdi-home",
     "name": "回到首頁",
-    "linkto": "/"
+    "linkto": "/home"
   },
   {
     "icon": "mdi-format-list-bulleted",
@@ -22,7 +22,7 @@
   {
     "icon": "mdi-cog",
     "name": "分案設定",
-    "linkto": "form"
+    "linkto": "setting"
   },
   {
     "icon": "mdi-calendar",

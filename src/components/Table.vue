@@ -1,18 +1,9 @@
 <template>
   <v-container>
-    <v-data-table
-      :headers="headers"
-      :items="data"
-      sort-by="calories"
-      class="elevation-1"
-    >
+    <v-data-table :headers="headers" :items="data" sort-by="calories" class="elevation-1">
       <template v-slot:item.action="{ item }">
-        <v-icon small class="mr-2" color="teal" @click="editItem(item)">
-          mdi-pencil
-        </v-icon>
-        <v-icon small color="red" @click="deleteItem(item)">
-          mdi-delete
-        </v-icon>
+        <v-icon small class="mr-2" color="teal" @click="editItem(item)">mdi-pencil</v-icon>
+        <v-icon small color="red" @click="deleteItem(item)">mdi-delete</v-icon>
       </template>
       <template v-slot:no-data>
         <v-btn color="primary" @click="initialize">Reset</v-btn>
@@ -68,9 +59,10 @@ export default {
     },
 
     editItem(item) {
-      this.editedIndex = this.desserts.indexOf(item)
+      /*       this.editedIndex = this.desserts.indexOf(item)
       this.editedItem = Object.assign({}, item)
-      this.dialog = true
+      this.dialog = true */
+      this.$router.push('/afvalue')
     },
 
     deleteItem(item) {

@@ -23,7 +23,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app color="red darken-4" dark>
+    <v-app-bar app color="primary" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" v-if="showMenu" />
       <div class="d-flex align-center"></div>
       <v-spacer></v-spacer>

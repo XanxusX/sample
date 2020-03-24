@@ -20,7 +20,7 @@
                 <v-btn fab text small color="grey darken-2" @click="next">
                   <v-icon small>mdi-chevron-right</v-icon>
                 </v-btn>
-                <v-toolbar-title>{{ title }}</v-toolbar-title>
+                <!-- <v-toolbar-title>{{ title }}</v-toolbar-title> -->
                 <v-spacer></v-spacer>
                 <v-menu bottom right>
                   <template v-slot:activator="{ on }">
@@ -49,13 +49,10 @@
                 v-model="focus"
                 color="primary"
                 :events="events"
-                :event-color="getEventColor"
-                :now="today"
                 :type="type"
                 @click:event="showEvent"
                 @click:more="viewDay"
                 @click:date="viewDay"
-                @change="updateRange"
               ></v-calendar>
               <v-menu
                 v-model="selectedOpen"
@@ -64,7 +61,7 @@
                 offset-x
               >
                 <v-card color="grey lighten-4" min-width="350px" flat>
-                  <v-toolbar :color="selectedEvent.color" dark>
+                  <v-toolbar color="primary" dark>
                     <v-btn icon>
                       <v-icon>mdi-pencil</v-icon>
                     </v-btn>
@@ -98,6 +95,7 @@
 </template>
 
 <script>
+import calendar from '../data/calendar.json'
 export default {
   data: () => ({
     focus: '',
@@ -112,7 +110,7 @@ export default {
     selectedEvent: {},
     selectedElement: null,
     selectedOpen: false,
-    events: [],
+    events: calendar,
     colors: [
       'blue',
       'indigo',
@@ -165,7 +163,7 @@ export default {
         timeZone: 'UTC',
         month: 'long'
       })
-    }
+    },
   },
   mounted() {
     this.$refs.calendar.checkChange()
@@ -244,6 +242,11 @@ export default {
             1}-${a.getDate()} ${a.getHours()}:${a.getMinutes()}`
         : `${a.getFullYear()}-${a.getMonth() + 1}-${a.getDate()}`
     }
+  },
+  created() {
+    this.events.map(event => {
+      event.color.push( this.colors[this.rnd(0, this.colors.length - 1)])
+    })
   }
 }
 </script>

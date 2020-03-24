@@ -1,5 +1,9 @@
 [
   {
+    "text": "系統編號",
+    "value": "sysid"
+  },
+  {
     "text": "群組名稱",
     "align": "start",
     "sortable": false,
