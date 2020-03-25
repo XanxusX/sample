@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <v-card>
       <v-container>
         <v-card-title>
@@ -33,8 +33,9 @@
           </v-row>
         </v-card-text>
         <v-card-actions>
-          <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
-          <v-btn color="blue darken-1" text @click="dialog = false">Save</v-btn>
+          <v-spacer></v-spacer>
+          <v-btn text @click="dialog = false">取消</v-btn>
+          <v-btn text color="primary" class="ml-4" @click="dialog = false">存檔</v-btn>
         </v-card-actions>
       </v-container>
     </v-card>

@@ -66,6 +66,11 @@ const routes = [{
   component: Setting
 },
 {
+  path: '/applicationform',
+  name: 'ApplicationForm',
+  component: ApplicationForm
+},
+{
   path: '/afvalue',
   name: 'AFvalue',
   component: AFvalue

@@ -4,16 +4,11 @@
       <v-col cols="12" sm="8" md="4">
         <v-card class="elevation-12">
           <v-toolbar color="primary" dark flat>
-            <v-toolbar-title></v-toolbar-title>
+            <v-toolbar-title>系統登入</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-form>
-              <v-text-field
-                label="帳號"
-                name="login"
-                prepend-icon="mdi-account"
-                type="text"
-              />
+              <v-text-field label="帳號" name="login" prepend-icon="mdi-account" type="text" />
 
               <v-text-field
                 id="password"
