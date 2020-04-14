@@ -65,15 +65,17 @@ input,
 import menu from './data/menu.json'
 import menu2 from './data/menu2.json'
 import { mapState } from 'vuex'
+// import firebaseFunction from './firebase/index'
 export default {
   name: 'App',
   data: () => ({
     drawer: false,
     menu: menu,
-    menu2: menu2
+    menu2: menu2,
+    // testbase: firebaseFunction.collectionRead({collection:'fruit'})
   }),
   computed: {
-    ...mapState(['showMenu'])
+    ...mapState(['showMenu']),
   }
 }
 </script>
