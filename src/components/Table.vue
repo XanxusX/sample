@@ -1,6 +1,18 @@
 <template>
   <v-container>
-    <v-data-table :headers="headers" :items="data" sort-by="calories" class="elevation-1">
+    <v-row>
+      <v-col md="12" xs="12" lg='6' offset-lg="6">
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+          class
+        ></v-text-field>
+      </v-col>
+    </v-row>
+    <v-data-table :headers="headers" :items="data" :search="search" sort-by="calories" class="elevation-1 mt-2">
       <template v-slot:item.action="{ item }">
         <v-icon small class="mr-2" color="teal" @click="editItem(item)">mdi-pencil</v-icon>
         <v-icon small color="red" @click="deleteItem(item)">mdi-delete</v-icon>
@@ -17,6 +29,7 @@ import header from '../data/table/header.json'
 import body from '../data/table/body.json'
 export default {
   data: () => ({
+    search: '',
     dialog: false,
     headers: header,
     data: [],

@@ -65,6 +65,7 @@ input,
 import menu from './data/menu.json'
 import menu2 from './data/menu2.json'
 import { mapState } from 'vuex'
+import localStorageFunction from './localStorage/index'
 // import firebaseFunction from './firebase/index'
 export default {
   name: 'App',
@@ -76,6 +77,10 @@ export default {
   }),
   computed: {
     ...mapState(['showMenu']),
+  },
+  mounted:() => {
+    localStorageFunction.initialize()
   }
 }
+
 </script>

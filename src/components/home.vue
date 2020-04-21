@@ -29,7 +29,6 @@
                 class="title text--primary"
                 style="font-family: 'Noto Sans TC', 'Roboto', sans-serif !important"
               >20件</div>
-              <p>{{fruitName}}</p>
             </v-card-text>
           </v-container>
         </v-card>
@@ -53,15 +52,5 @@ export default {
   data() {
     return {}
   },
-  methods: {
-    ...mapActions(['TestFirebaseAction'])
-  },
-  computed: {
-    ...mapState(['count']),
-    ...mapState(['fruitName'])
-  },
-  mounted() {
-    this.TestFirebaseAction('fruit')
-  }
 }
 </script>

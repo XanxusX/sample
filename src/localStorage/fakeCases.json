@@ -1,0 +1,25 @@
+{
+    "allCases": [
+        {
+            "memberId": "fakeId2211",
+            "name": "劉小華",
+            "dataSource": "電話",
+            "city": "台北市",
+            "area": "文山區",
+            "address": "中正路60號四樓",
+            "mobile": "0920222333",
+            "anotherPhone": "28459831",
+            "refferer": "vito",
+            "reffererCode": "1111",
+            "groupCode": "2222",
+            "department": "人資",
+            "reffererRegion": "aaa",
+            "reffererRelegation": "bbb",
+            "time": "2020-04-21",
+            "contactTime": [
+                "上午"
+            ]
+            
+        }
+    ]
+}

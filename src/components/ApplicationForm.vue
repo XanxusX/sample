@@ -29,10 +29,23 @@
           </v-row>
           <v-row class="row">
             <v-col lg="true" md="true" class="col-md-6 col-sm-12 col-12">
-              <v-select label="資料來源" chips n :items="['登錄系統','電話','傳真']" v-model="applicationForm.dataSource"></v-select>
+              <v-select
+                label="資料來源"
+                chips
+                n
+                :items="['登錄系統','電話','傳真']"
+                v-model="applicationForm.dataSource"
+              ></v-select>
             </v-col>
             <v-col lg="true" me="true" class="col-md-6 col-sm-12 col-12">
-              <v-select label="可聯絡時間" chips n :items="['上午','下午','晚上']" multiple v-model="applicationForm.contactTime"></v-select>
+              <v-select
+                label="可聯絡時間"
+                chips
+                n
+                :items="['上午','下午','晚上']"
+                multiple
+                v-model="applicationForm.contactTime"
+              ></v-select>
             </v-col>
           </v-row>
           <v-row class="row">
@@ -80,8 +93,14 @@
           </v-row>
           <v-row align="right">
             <v-col cols="12" align="right">
-              <v-btn text >取消</v-btn>
-              <v-btn text color="primary" class="ml-4" dark @click="CreateDocument({collectionName:'application', dataObject: applicationForm})">存檔</v-btn>
+              <Modal></Modal>
+              <v-btn
+                text
+                color="primary"
+                class="ml-4"
+                dark
+                @click="CreateDocument({collectionName:'applicationForm', dataObject: applicationForm})"
+              >存檔</v-btn>
             </v-col>
           </v-row>
         </v-card-text>
@@ -91,16 +110,19 @@
 </template>
 
 <script>
+import Modal from './Modal'
 import { mapState, mapActions } from 'vuex'
 export default {
-  name:'ApplicationForm',
+  name: 'ApplicationForm',
+  components: {
+    Modal
+  },
   data: () => ({
     // time: null,
     menu2: false
   }),
   methods: {
     ...mapActions(['CreateDocument']),
-    testMethod: (a,b,c)=>{console.log(`${a} , ${b}, ${c}`)}
   },
   computed: { ...mapState(['applicationForm']) }
 }

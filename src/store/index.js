@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { db } from '../firebase/index'
+import localStorageFunction from '../localStorage/index'
 import { Number, String } from 'core-js'
 // import firebaseFunction from '../firebase/index'
 
@@ -25,19 +26,31 @@ export default new Vuex.Store({
       reffererRegion: null,
       reffererRelegation: null,
       time: null,
-      contactTime: null
+      contactTime: null,
     },
+    //測試用
     fruitName: {}
   },
   mutations: {
     ChangeMenuState: function (state) {
       state.showMenu = !state.showMenu
     },
+    ClearTemporaryData: function(state, collectionName){
+      let properties = Object.getOwnPropertyNames(state[collectionName])
+      for (let index = 0; index < properties.length; index++) {
+            if (properties[index] == 'memberId') {
+              continue
+            }
+            state[collectionName][properties[index]] = null;
+          }
+    },
+    // 測試用
     TestFirebase: function (state, fruitName) {
       state.fruitName = fruitName
     }
   },
   actions: {
+    // 測試用
     TestFirebaseAction({ commit }, fruit) {
       var ref = db.collection(fruit);
       ref.get().then(collection => {
@@ -49,22 +62,33 @@ export default new Vuex.Store({
       );
     },
     CreateDocument({ commit }, { collectionName, dataObject }) {
-      var ref = db.collection(collectionName).doc();
-      ref.set(dataObject).then(() => {
-        // 資料內取得所有屬性
-        let properties = Object.getOwnPropertyNames(dataObject)
-        for (let index = 0; index < properties.length; index++) {
-          if (properties[index]=='memberId') {
-            continue
-          }
-          dataObject[properties[index]]=null;
-        }
-        alert('新增成功')
-      }
-      ).catch((error) =>
-        console.log(`Create document fail, error is ${error}`)
-      );
+      localStorageFunction.create(collectionName, dataObject)
+      commit('ClearTemporaryData',collectionName)
+      alert('新增成功')
     }
+    //連接firebase的寫法
+    // CreateDocument({ commit }, { collectionName, dataObject }) {
+    //   var ref = db.collection(collectionName).doc();
+    //   ref.set(dataObject).then(() => {
+    //     ClearTemporaryData(dataObject)
+    //     alert('新增成功')
+    //   }
+    //   ).catch((error) =>
+    //     console.log(`Create document fail, error is ${error}`)
+    //   );
+    // },
   },
   modules: {}
 })
+
+// //清空某個物件內所有屬性
+// function ClearTemporaryData(dataObject) {
+//   // 資料內取得所有屬性
+//   let properties = Object.getOwnPropertyNames(dataObject)
+//   for (let index = 0; index < properties.length; index++) {
+//     if (properties[index] == 'memberId') {
+//       continue
+//     }
+//     dataObject[properties[index]] = null;
+//   }
+// }
