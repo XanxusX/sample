@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { db } from '../firebase/index'
 import localStorageFunction from '../localStorage/index'
+import login from '../data/login.json'
 import { Number, String } from 'core-js'
 // import firebaseFunction from '../firebase/index'
 
@@ -9,8 +10,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    login:login,
     showMenu: true,
-    applicationForm: {
+    newCase: {
       memberId: 'fakeId2211',
       name: null,
       dataSource: null,
@@ -61,9 +63,9 @@ export default new Vuex.Store({
         console.log(`read collection fail, error is ${error}`)
       );
     },
-    CreateDocument({ commit }, { collectionName, dataObject }) {
+    CreateDocument({ commit }, { collectionName, dataObject, storeClear }) {
       localStorageFunction.create(collectionName, dataObject)
-      commit('ClearTemporaryData',collectionName)
+      commit('ClearTemporaryData',storeClear)
       alert('新增成功')
     }
     //連接firebase的寫法
@@ -78,7 +80,12 @@ export default new Vuex.Store({
     //   );
     // },
   },
-  modules: {}
+  modules: {},
+  getters: {
+    getLoginInfo: state => {
+      return state.login
+    }
+  }
 })
 
 // //清空某個物件內所有屬性

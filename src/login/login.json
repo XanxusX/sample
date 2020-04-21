@@ -1,6 +1,7 @@
 [
     {
         "account": "example@ex.com",
-        "password": "abc123"
+        "password": "abc123",
+        "memberId": "diej30c03"
     }
 ]

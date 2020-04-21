@@ -2,7 +2,6 @@
 import tableBody from '../data/table/body.json'
 
 let dataFormat = {
-    applicationForm :[],
     allCases: []
 }
 

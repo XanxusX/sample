@@ -8,7 +8,13 @@
           </v-toolbar>
           <v-card-text>
             <v-form>
-              <v-text-field label="帳號" name="login" prepend-icon="mdi-account" type="text" />
+              <v-text-field
+                label="帳號"
+                name="login"
+                prepend-icon="mdi-account"
+                type="text"
+                v-model="account"
+              />
 
               <v-text-field
                 id="password"
@@ -16,8 +22,10 @@
                 name="password"
                 prepend-icon="mdi-lock"
                 type="password"
+                v-model="password"
               />
             </v-form>
+            <p v-if="loginFailed" class="red--text text-center">帳號或密碼錯誤</p>
           </v-card-text>
           <v-card-actions>
             <v-spacer />
@@ -30,17 +38,47 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 export default {
+  name: 'login',
+  data: () => ({
+    loginFailed: false,
+    account: '',
+    password: ''
+  }),
   methods: {
     ...mapMutations(['ChangeMenuState']),
     login: function() {
-      this.ChangeMenuState()
-      this.$router.push('/home')
+      this.checkLogin()
+      if (!this.loginFailed) {
+        this.ChangeMenuState()
+        this.$router.push('/home')
+      }
+    },
+    checkLogin: function() {
+      let accountArray = this.getLoginInfo.map(x => x.account)
+      let index = accountArray.indexOf(this.account)
+      // 找不到輸入帳號
+      if (index == -1) {
+        this.loginFailed = true
+      } else {
+        //密碼錯誤
+        if (this.getLoginInfo[index].password != this.password) {
+          this.loginFailed = true
+        }else{
+          //成功登入
+          this.loginFailed = false
+          this.newCase.memberId = this.getLoginInfo[index].memberId
+        }
+      }
     }
   },
   created() {
     this.ChangeMenuState()
+  },
+  computed: {
+    ...mapGetters(['getLoginInfo']),
+    ...mapState(['newCase'])
   }
 }
 </script>
